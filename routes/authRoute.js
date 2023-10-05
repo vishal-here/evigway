@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 const obj =require('../controllers/auth')
 
 
-router.post('/login',obj.login)
+router.post('/login',[check("email").isEmail(),obj.login)
 router.post('/signup',obj.signup)
 router.get('/getUser/:id',obj.getUser)
 
